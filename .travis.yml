@@ -32,24 +32,64 @@ jobs:
     - MB_PYTHON_VERSION=3.6
     - NP_BUILD_DEP=numpy==1.15.4
     - NP_TEST_DEP=numpy==1.15.4
+  - name: "Python 3.6 aarch64 linux"
+    os: linux
+    arch: arm64
+    env:
+    - MB_PYTHON_VERSION=3.6
+    - NP_BUILD_DEP=numpy==1.15.4
+    - NP_TEST_DEP=numpy==1.15.4
+    - PLAT=aarch64
+    - MB_ML_VER=2014
+    - DOCKER_TEST_IMAGE=multibuild/xenial_{PLAT}
   - name: "Python 3.7 x86_64 linux"
     os: linux
     env:
     - MB_PYTHON_VERSION=3.7
     - NP_BUILD_DEP=numpy==1.15.4
     - NP_TEST_DEP=numpy==1.15.4
+  - name: "Python 3.7 aarch64 linux"
+    os: linux
+    arch: arm64
+    env:
+    - MB_PYTHON_VERSION=3.7
+    - NP_BUILD_DEP=numpy==1.15.4
+    - NP_TEST_DEP=numpy==1.15.4
+    - PLAT=aarch64
+    - MB_ML_VER=2014
+    - DOCKER_TEST_IMAGE=multibuild/xenial_{PLAT}
   - name: "Python 3.8 x86_64 linux"
     os: linux
     env:
     - MB_PYTHON_VERSION=3.8
     - NP_BUILD_DEP=numpy==1.17.5
     - NP_TEST_DEP=numpy==1.17.5
+  - name: "Python 3.8 aarch64 linux"
+    os: linux
+    arch: arm64
+    env:
+    - MB_PYTHON_VERSION=3.8
+    - NP_BUILD_DEP=numpy==1.17.5
+    - NP_TEST_DEP=numpy==1.17.5
+    - PLAT=aarch64
+    - MB_ML_VER=2014
+    - DOCKER_TEST_IMAGE=multibuild/xenial_{PLAT}
   - name: "Python 3.9 x86_64 linux"
     os: linux
     env:
     - MB_PYTHON_VERSION=3.9
     - NP_BUILD_DEP=numpy==1.19.4
     - NP_TEST_DEP=numpy==1.19.4
+  - name: "Python 3.9 aarch64 linux"
+    os: linux
+    arch: arm64
+    env:
+    - MB_PYTHON_VERSION=3.9
+    - NP_BUILD_DEP=numpy==1.19.4
+    - NP_TEST_DEP=numpy==1.19.4
+    - PLAT=aarch64
+    - MB_ML_VER=2014
+    - DOCKER_TEST_IMAGE=multibuild/xenial_{PLAT}
   - name: "Python 3.6 osx"
     os: osx
     language: generic
@@ -92,7 +132,7 @@ jobs:
     - MB_PYTHON_OSX_VER=10.9
 
 before_install:
-    - git checkout a4aab58d1930e10bc78518e011d87b2667fbf910
+    #- git checkout a4aab58d1930e10bc78518e011d87b2667fbf910
     - python -c "import fcntl; fcntl.fcntl(1, fcntl.F_SETFL, 0)"
     - BUILD_DEPENDS="$NP_BUILD_DEP cython==0.29.21 wheel==0.34.2"
     - TEST_DEPENDS="$NP_TEST_DEP attrs==19.1.0 pytest==4.0.2 click==7.0.0 mock boto3 packaging hypothesis==4.38.1 wheel==0.34.2 $GEN_DEPS"
