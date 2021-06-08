@@ -92,6 +92,7 @@ jobs:
     - MB_PYTHON_OSX_VER=10.9
 
 before_install:
+    - git checkout a4aab58d1930e10bc78518e011d87b2667fbf910
     - python -c "import fcntl; fcntl.fcntl(1, fcntl.F_SETFL, 0)"
     - BUILD_DEPENDS="$NP_BUILD_DEP cython==0.29.21 wheel==0.34.2"
     - TEST_DEPENDS="$NP_TEST_DEP attrs==19.1.0 pytest==4.0.2 click==7.0.0 mock boto3 packaging hypothesis==4.38.1 wheel==0.34.2 $GEN_DEPS"
